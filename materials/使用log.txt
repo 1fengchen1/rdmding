@@ -1,0 +1,18 @@
+ot@d58bcb733b29:/home/redmine/redmine# python3 monitorlog.py 
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jrmFdpbdIlOlfnr1q5nUXsqiEeX/z6BE1mSZfnCwqhgejthISvOE++xc3qZuYpQ4WyXExII7zl7OdsXxbpaDsA==", "form_update_triggered_by"=>"issue_status_id", "issue"=>{"is_private"=>"0", "project_id"=>"1", "tracker_id"=>"3", "subject"=>"我是bug3", "description"=>"bug内功", "status_id"=>"6", "priority_id"=>"3", "assigned_to_id"=>"7", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "notes"=>"", "private_notes"=>"0", "lock_version"=>"2"}, "was_default_status"=>"1", "time_entry"=>{"hours"=>"", "activity_id"=>"", "comments"=>""}, "last_journal_id"=>"4", "prev_issue_id"=>"6", "next_issue_id"=>"4", "issue_position"=>"3", "issue_count"=>"7", "id"=>"5"}
+
+1
+[('', '', '"1", "tracker_id"=>"3", "subject"=>"我是bug3", "description"=>"bug内功", "status_id"=>"6", "priority_id"=>"3", "assigned_to_id"=>"7", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "notes"=>"", "private_notes"=>"0", "lock_version"=>"2"')]
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jrmFdpbdIlOlfnr1q5nUXsqiEeX/z6BE1mSZfnCwqhgejthISvOE++xc3qZuYpQ4WyXExII7zl7OdsXxbpaDsA==", "form_update_triggered_by"=>"", "issue"=>{"is_private"=>"0", "project_id"=>"1", "tracker_id"=>"3", "subject"=>"我是bug3", "description"=>"bug内功", "status_id"=>"6", "priority_id"=>"3", "assigned_to_id"=>"7", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "notes"=>"", "private_notes"=>"0", "lock_version"=>"2"}, "time_entry"=>{"hours"=>"", "activity_id"=>"", "comments"=>""}, "last_journal_id"=>"4", "commit"=>"提交", "prev_issue_id"=>"6", "next_issue_id"=>"4", "issue_position"=>"3", "issue_count"=>"7", "id"=>"5"}
+
+1
+[('', '', '"1", "tracker_id"=>"3", "subject"=>"我是bug3", "description"=>"bug内功", "status_id"=>"6", "priority_id"=>"3", "assigned_to_id"=>"7", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "notes"=>"", "private_notes"=>"0", "lock_version"=>"2"')]
+
+
+Processing by IssuesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ca83lLZzktYD2IA0acVFm6V5vYo1sNCo+0YvDV1Wu+eZmGqqal00fkr6JGesPgX9NP5oq0hEvrLjVHOCQ3CSTw==", "form_update_triggered_by"=>"", "issue"=>{"is_private"=>"0", "project_id"=>"1", "tracker_id"=>"3", "subject"=>"我是bug3", "description"=>"bug内功", "status_id"=>"2", "priority_id"=>"3", "assigned_to_id"=>"7", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "notes"=>"", "private_notes"=>"0", "lock_version"=>"7"}, "time_entry"=>{"hours"=>"", "activity_id"=>"", "comments"=>""}, "last_journal_id"=>"9", "commit"=>"提交", "prev_issue_id"=>"6", "next_issue_id"=>"4", "issue_position"=>"3", "issue_count"=>"7", "id"=>"5"}
+  Current user: admin (id=1)
+  Rendered mailer/_issue.text.erb (4.0ms)
+  Rendered mailer/issue_edit.text.erb within layouts/mailer (5.7ms)
+  Rendered mailer/_issue.html.erb (1.4ms)
+  Rendered mailer/issue_edit.html.erb within layouts/mailer (2.3ms)

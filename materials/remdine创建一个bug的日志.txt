@@ -1,0 +1,40 @@
+Started POST "/projects/tesst1/issues/new.js" for 127.0.0.1 at 2018-11-29 02:50:30 +0000
+Processing by IssuesController#new as JS
+  Parameters: {"utf8"=>"?", "authenticity_token"=>"Yak7+xKi5b35/7URzN2/hjf0h/qfeWmEz38ycXdeY95PCIWIvDE3YlvMvIhTJrYwvOhXGXGpCXN05IoeOMTYXA==", "form_update_triggered_by"=>"issue_tracker_id", "back_url"=>"/issues/2", "issue"=>{"is_private"=>"0", "tracker_id"=>"4", "subject"=>"", "description"=>"", "status_id"=>"2", "priority_id"=>"2", "assigned_to_id"=>"", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "watcher_user_ids"=>[""]}, "project_id"=>"tesst1"}
+  Current user: admin (id=1)
+  Rendered issues/_form_custom_fields.html.erb (3.0ms)
+  Rendered issues/_attributes.html.erb (17.4ms)
+  Rendered issues/_form.html.erb (22.3ms)
+  Rendered issues/new.js.erb (22.9ms)
+Completed 200 OK in 82ms (Views: 19.9ms | ActiveRecord: 23.6ms)
+Started POST "/projects/tesst1/issues" for 127.0.0.1 at 2018-11-29 02:52:35 +0000
+Processing by IssuesController#create as HTML
+  Parameters: {"utf8"=>"?", "authenticity_token"=>"Yak7+xKi5b35/7URzN2/hjf0h/qfeWmEz38ycXdeY95PCIWIvDE3YlvMvIhTJrYwvOhXGXGpCXN05IoeOMTYXA==", "form_update_triggered_by"=>"", "back_url"=>"/issues/2", "issue"=>{"is_private"=>"0", "tracker_id"=>"4", "subject"=>"我是bug", "description"=>"", "status_id"=>"2", "priority_id"=>"2", "assigned_to_id"=>"6", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "watcher_user_ids"=>["", "5"]}, "commit"=>"创建", "project_id"=>"tesst1"}
+  Current user: admin (id=1)
+  Rendered mailer/_issue.text.erb (2.1ms)
+  Rendered mailer/issue_add.text.erb within layouts/mailer (2.7ms)
+  Rendered mailer/_issue.html.erb (1.5ms)
+  Rendered mailer/issue_add.html.erb within layouts/mailer (1.8ms)
+Redirected to http://172.16.1.204:10083/issues/2
+Completed 302 Found in 187ms (ActiveRecord: 49.3ms)
+Started GET "/issues/2" for 127.0.0.1 at 2018-11-29 02:52:36 +0000
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"2"}
+  Current user: admin (id=1)
+  Rendered issues/_action_menu.html.erb (5.6ms)
+  Rendered issue_relations/_form.html.erb (1.8ms)
+  Rendered issues/_relations.html.erb (2.5ms)
+  Rendered issues/_action_menu.html.erb (20.4ms)
+  Rendered issues/_form_custom_fields.html.erb (0.0ms)
+  Rendered issues/_attributes.html.erb (8.0ms)
+  Rendered issues/_form.html.erb (18.1ms)
+  Rendered attachments/_form.html.erb (2.4ms)
+  Rendered issues/_edit.html.erb (32.9ms)
+  Rendered issues/_sidebar.html.erb (3.0ms)
+  Rendered watchers/_watchers.html.erb (5.1ms)
+  Rendered issues/show.html.erb within layouts/base (108.0ms)
+Completed 200 OK in 179ms (Views: 104.6ms | ActiveRecord: 39.7ms)
+
+
+
+ Parameters: {"utf8"=>"?", "authenticity_token"=>"Yak7+xKi5b35/7URzN2/hjf0h/qfeWmEz38ycXdeY95PCIWIvDE3YlvMvIhTJrYwvOhXGXGpCXN05IoeOMTYXA==", "form_update_triggered_by"=>"", "back_url"=>"/issues/2", "issue"=>{"is_private"=>"0", "tracker_id"=>"4", "subject"=>"我是bug", "description"=>"", "status_id"=>"2", "priority_id"=>"2", "assigned_to_id"=>"6", "parent_issue_id"=>"2", "start_date"=>"2018-11-29", "due_date"=>"", "estimated_hours"=>"", "done_ratio"=>"0", "watcher_user_ids"=>["", "5"]}, "commit"=>"创建", "project_id"=>"tesst1"}
