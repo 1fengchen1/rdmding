@@ -6,6 +6,9 @@ from connectdb import DB
 from config import conf
 
 
+bug_status = ['已解决', '重新打开', '拒绝', '新建']
+
+
 def isHTML(line):
     if re.compile(r'IssuesController#create as HTML').findall(line):
         now = '1'
@@ -65,17 +68,23 @@ class RMDATA:
             self.data.update({'bug_id': bug_id})
         else:
             return False
-        status_id = re.compile(r'"status_id"=>"(\d*)"').findall(self.line)[0]
-        print(re.compile(r'"status_id"=>"(\d*)"').findall(self.line))
+        print('source_data:\n', self.line)
+        try:
+            status_id = re.compile(r'"status_id"=>"(\d*)"').findall(self.line)[0]
+        except IndexError:
+            return False
         subject = re.compile(r'"subject"=>"(.*?)"').findall(self.line)[0]
         assigned_to_id = re.compile(r'"assigned_to_id"=>"(\d*)"').findall(self.line)[0]
-        parent_issue_id = re.compile(r'"parent_issue_id"=>"(\d*)"').findall(self.line)[0]
-        priority_id = re.compile(r'"parent_issue_id"=>"(\d*)"').findall(self.line)[0]
+        try:
+            parent_issue_id = re.compile(r'"parent_issue_id"=>"(\d*)"').findall(self.line)[0]
+        except IndexError:
+            parent_issue_id = None
+        priority_id = re.compile(r'"priority_id"=>"(\d*)"').findall(self.line)[0]
 
         self.data.update({'now': self.up, 'project_id': project_id, 'tracker_id': tracker_id, 'subject': subject,
                           'assigned_to_id': assigned_to_id, 'parent_issue_id': parent_issue_id,
                           'priority_id': priority_id, 'status_id': status_id})
-        print('self.data: ', self.data)
+        print('redmine.data:\n', self.data)
         return self.data
 
 
@@ -114,7 +123,6 @@ class DATA:
 
             db.execute(sql_status)
             self.status = list(db.fetchone())[0].split('@')[0]
-            print(self.status)
             self.parent = self.msg['parent_issue_id']
 
             self.subject = self.msg['subject']
@@ -142,19 +150,20 @@ class DATA:
             print('Error:', e)
             return False
 
-        if self.status == '已解决' or '重新打开' or '拒绝' or '新建':
-            # print(self.parent, self.email, self.subject, self.project, self.url, self.phone, self.token)
-            return {'project': self.project, 'subject': self.subject, 'status':self.status,
-                    'phone': self.phone, 'url': self.url, 'token': self.token}
+        if self.status in bug_status:
+            map_data = {'project': self.project, 'subject': self.subject, 'status': self.status,
+                        'phone': self.phone, 'url': self.url, 'token': self.token}
+            print('map_data:\n', map_data)
+            return map_data
         else:
             return False
 
 
 def request(data):
-    '''
+    """
     parameter: list(data), str(dingding)
     return: True Flae
-    '''
+    """
     url = 'https://oapi.dingtalk.com/robot/send?access_token=' + data['token']
     headers = {"Content-Type": "application/json; charset=utf-8"}
     msg = {
@@ -175,7 +184,7 @@ def request(data):
 
 
 def data(txt):
-    '回调函数'
+    """回调函数"""
     isHTML(txt)
     with open('rmding.txt', 'r') as f:
         # 将上游数据暂时存在rmding.txt文件，up为1则开始记录数据
@@ -185,7 +194,7 @@ def data(txt):
         # 对data进行映射
         msg = DATA(msg).data_map()
         if msg:
-            print(msg)
+            print('ding_data:\n', msg)
             request(msg)
 
 
@@ -195,11 +204,9 @@ def run():
     t.follow(s=3)
 
 
-def runding():
+def test():
     data = ''
-    dingding = 'https://oapi.dingtalk.com/robot/send?access_' \
-               'token=f14f165490fbba76611d47b36ea0ca3f49184e220448ad877d2f0ba3ec826125'
-    request(data, dingding)
+    request(data)
 
 
 if __name__ == "__main__":
